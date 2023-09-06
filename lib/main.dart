@@ -7,7 +7,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,13 +15,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Pehla pehla app hai'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required String title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -32,6 +32,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar( // Add an AppBar
+        title: Text(widget.title), // Display the title in the AppBar
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
